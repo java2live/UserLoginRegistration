@@ -1,8 +1,10 @@
 package java2live.registstration.service;
 
 import java.util.Calendar;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -56,6 +58,23 @@ public class TemperatureService implements Constants{
 		
 		return tempInfo;
 		
+	}
+	/*call scheduler on every 1 min and update older temperature info by calling new service */ 
+	@Scheduled(cron="${update.cron.expression}")
+	public void callExecute(){
+		List<TemperatureInfo> temperatureInfos=temperatureInfoRepository.findAll();
+		temperatureInfos.forEach(t->getTemperatureByPincode(t));
+	}
+	public void getTemperatureByPincode(TemperatureInfo temperatureInfo){
+		String pincode=temperatureInfo.getPincode();
+		String country=temperatureInfo.getCountry();
+		final String result = validateTemparatureExpiryDate(pincode, country);
+        if (result.equals("valid")) 
+        	
+        	 getTemperatureByPincode(pincode,country);
+        	
+        else
+        	getUpdatedTemperatureByPincode(pincode, country);
 	}
 
 }
