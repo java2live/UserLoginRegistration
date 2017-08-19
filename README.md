@@ -29,7 +29,7 @@ Create a restful api for user registration with following fields
   -	Email
   -	Pincode
 
-Rest API: http://localhost:9090/userRegistraion/v0
+Rest API: http://localhost:9090/userRegistration/v0
 Method: POST
   
   Request Boday : 
@@ -47,7 +47,7 @@ Method: POST
         -	Send login link (http-link) to his registered email.
         -	Login-link expires in 15 min.
 
-    Rest API: http://localhost:9090/userRegistraion/v0
+    Rest API: http://localhost:9090/userRegistration/v0
     Method: POST
   
   Request Boday : 
@@ -100,8 +100,8 @@ Method: POST
          
           server.port:9090
           server.host.uri=http://localhost:9090
-          spring.mail.host=smtp.xxx.coms
-          spring.mail.username=test@email.com
+          spring.mail.host=smtp.gmail.com
+          spring.mail.username=test@gmail.com
           spring.mail.password=*****
           spring.mail.properties.mail.smtp.auth=true
           spring.mail.properties.mail.smtp.starttls.enable=true
