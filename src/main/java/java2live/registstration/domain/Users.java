@@ -55,6 +55,23 @@ public class Users {
 	public void setValidated(boolean validated) {
 		this.validated = validated;
 	}
-	
+	@Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Users user = (Users) obj;
+        if (!email.equals(user.email)) {
+            return false;
+        }
+        return true;
+    }
+
 	
 }

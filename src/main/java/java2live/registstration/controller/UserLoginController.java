@@ -76,7 +76,7 @@ public class UserLoginController {
 		userService.deleteUser(userService.getUserByEmail(email));
 	}
 	/* This api is used to register the user by passing request body with name,email,pincode */
-	@PostMapping("/userRegistraion/v0")
+	@PostMapping("/userRegistration/v0")
 	public Users setUser(@RequestBody Users users,  
 		  WebRequest request, 
 			  Errors errors){
@@ -95,7 +95,7 @@ public class UserLoginController {
 
 	}
 	/* This api is used to register the user by passing request body with name,email,pincode */
-	@PostMapping("/userRegistraion/v1")
+	@PostMapping("/userRegistration/v1")
 	public Users setUser1(@RequestBody Users users,  
 		  WebRequest request, 
 			  Errors errors){

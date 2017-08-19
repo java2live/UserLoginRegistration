@@ -82,5 +82,22 @@ public class TemperatureInfo {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	@Override
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final TemperatureInfo temperatureInfo = (TemperatureInfo) obj;
+        if (!pincode.equals(temperatureInfo.pincode)) {
+            return false;
+        }
+        return true;
+    }
 
 }
